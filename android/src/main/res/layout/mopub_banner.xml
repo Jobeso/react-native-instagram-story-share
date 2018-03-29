@@ -1,0 +1,4 @@
+<com.mopub.mobileads.MoPubView android:id="@+id/adview"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

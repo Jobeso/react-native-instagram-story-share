@@ -1,0 +1,5 @@
+mopubNative = (MoPubView)LayoutInflater.from(context).inflate(R.layout.mopub_banner, null);
+mopubNative.setAdUnitId("b195f8dd8ded45fe847ad89ed1d016da"); // Enter your Ad Unit ID from www.mopub.com
+mopubNative.loadAd();
+mopubNative.setAutorefreshEnabled(false);
+mopubNative.setTesting(true);
