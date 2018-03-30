@@ -1,7 +1,7 @@
 import React from 'react'
 import { requireNativeComponent } from 'react-native'
 
-const TellAd = requireNativeComponent('NativeTellAd', NativeTellAdView)
+const TellAd = requireNativeComponent('NativeTellAd', NativeAd)
 
 class NativeAd extends React.Component {
   render() {
