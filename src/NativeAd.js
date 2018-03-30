@@ -1,7 +1,7 @@
-import React from "react"
-import { requireNativeComponent } from "react-native"
+import React from 'react'
+import { requireNativeComponent } from 'react-native'
 
-const TellAd = requireNativeComponent("NativeTellAd", NativeTellAdView)
+const TellAd = requireNativeComponent('NativeTellAd', NativeTellAdView)
 
 class NativeAd extends React.Component {
   render() {
@@ -20,4 +20,4 @@ NativeAd.propTypes = {
   unitId: PropTypes.string,
 }
 
-export default NativeAd
+module.exports = NativeAd
