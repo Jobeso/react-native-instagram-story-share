@@ -8,11 +8,12 @@
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/Tellonym/react-native-glispa-connect.git"
+    "url": "https://gitlab.com/Tellonym/react-native-mopub.git"
   },
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -20,6 +21,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react-native": "^3.2.1",
     "prettier": "^1.5.3"
   },
   "dependencies": {
