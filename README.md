@@ -35,24 +35,24 @@
     }
 	
 + Native Modul Name ändern (Im JS Modul auch anpassen)
-	com.testapp.nativeAds -> NativeAdViewManager [Zeile 38]:
+	com.RNMoPub.nativeAds -> NativeAdViewManager [Zeile 38]:
 		public static final String REACT_CLASS = "NativeTellAd";
 		
 + Layout für Ad ändern:
-	com.testapp.nativeAds -> NativeAdViewManager [Zeile 38]:
+	com.RNMoPub.nativeAds -> NativeAdViewManager [Zeile 38]:
 		public static final int LAYOUT = R.layout.native_ad;
 		
 + Eigene Attribut Events hinzufügen:
-	com.testapp.nativeAds -> NativeAdViewManager [Zeile 76]:
+	com.RNMoPub.nativeAds -> NativeAdViewManager [Zeile 76]:
 		builder.put(<attribut_name>, MapBuilder.of("registrationName", <attribut_name>));
 
 + Layout für Ad mit ViewBinder anpassen:
-	com.testapp.nativeAds -> NativeAdViewManager [Zeile 99]:
+	com.RNMoPub.nativeAds -> NativeAdViewManager [Zeile 99]:
 
 + Event aus Attribut ausführen
 	WritableMap event = Arguments.createMap();
 	emitter.receiveEvent(adView.getId(), <attribut_name>, event);
-	(Siehe com.testapp.nativeAds -> NativeAdViewManager [Zeile 186])
+	(Siehe com.RNMoPub.nativeAds -> NativeAdViewManager [Zeile 186])
 	
 	
 	

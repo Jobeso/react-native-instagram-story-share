@@ -1,4 +1,4 @@
-package com.testapp;
+package com.RNMoPub;
 
 import android.app.Application;
 

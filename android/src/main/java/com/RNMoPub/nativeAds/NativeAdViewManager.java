@@ -1,4 +1,4 @@
-package com.testapp.nativeAds;
+package com.RNMoPub.nativeAds;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -22,8 +22,8 @@ import com.mopub.nativeads.NativeAd;
 import com.mopub.nativeads.NativeErrorCode;
 import com.mopub.nativeads.RequestParameters;
 import com.mopub.nativeads.ViewBinder;
-import com.testapp.LayoutMap;
-import com.testapp.R;
+import com.RNMoPub.LayoutMap;
+import com.RNMoPub.R;
 
 import java.util.EnumSet;
 import java.util.Map;
@@ -34,7 +34,7 @@ import java.util.Map;
 
 public class NativeAdViewManager extends SimpleViewManager<View> implements View.OnAttachStateChangeListener, MoPubNative.MoPubNativeNetworkListener, NativeAd.MoPubNativeEventListener
 {
-    public static final String REACT_CLASS = "NativeTellAd";
+    public static final String REACT_CLASS = "NativeAd";
     public static final String FAILURE_EVENT = "onFailure";
     public static final String SUCCESS_EVENT = "onSuccess";
     public static final String IMPRESSION_EVENT = "onImpression";

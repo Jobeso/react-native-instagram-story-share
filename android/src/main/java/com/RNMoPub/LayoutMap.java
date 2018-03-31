@@ -1,6 +1,6 @@
-package com.testapp;
+package com.RNMoPub;
 
-import com.testapp.R;
+import com.RNMoPub.R;
 
 import java.util.HashMap;
 
