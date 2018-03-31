@@ -1,5 +1,1 @@
-const NativeAd = require('./NativeAd')
-
-module.exports = {
-  NativeAd,
-}
+export { default as NativeAd } from './NativeAd'

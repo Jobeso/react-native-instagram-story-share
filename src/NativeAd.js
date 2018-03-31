@@ -1,16 +1,19 @@
 import React from 'react' // eslint-disable-line
-import { Dimensions, requireNativeComponent } from 'react-native' // eslint-disable-line
+import { Dimensions, requireNativeComponent, View } from 'react-native' // eslint-disable-line
 import PropTypes from 'prop-types'
 
 const NativeComponent = requireNativeComponent('NativeAd', NativeAd)
 
 class NativeAd extends React.Component {
   render() {
-    return <NativeComponent {...this.props} style={{ ...this.props.size }} />
+    return (
+      <View style={{ ...this.props.style }}>
+        <NativeComponent {...this.props} style={{ ...this.props.size }} />
+      </View>
+    )
   }
 }
 
-// TODO: add isRequired
 NativeAd.defaultProps = {
   layout: 'small',
   onClick: () => {},
@@ -18,7 +21,7 @@ NativeAd.defaultProps = {
   onImpression: () => {},
   onSuccess: () => {},
   size: {
-    height: 200,
+    height: 300,
     width: Dimensions.get('window').width,
   },
 }
@@ -36,4 +39,4 @@ NativeAd.propTypes = {
   unitId: PropTypes.string.isRequired,
 }
 
-module.exports = NativeAd
+export default NativeAd
