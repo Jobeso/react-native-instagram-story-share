@@ -100,9 +100,12 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         }
         mopubNative = new MoPubNative(themedReactContext.getCurrentActivity(), unitId, this);
         mopubNative.registerAdRenderer(new MoPubStaticNativeAdRenderer(new ViewBinder.Builder(layout)
-                            .titleId(R.id.ad_title)
-                            .textId(R.id.ad_body)
-                            .mainImageId(R.id.ad_image)
+                            .titleId(R.id.native_title)
+                            .textId(R.id.native_text)
+                            .mainImageId(R.id.native_main_image)
+                            .iconIamgeId(R.id.native_icon_image)
+                            .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+                            .callToActionId(R.id.native_cta)
                             .build()));
         /* For developers
             You can add extra informations like:
@@ -116,7 +119,8 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
                 .desiredAssets(EnumSet.of(
                         RequestParameters.NativeAdAsset.TITLE,
                         RequestParameters.NativeAdAsset.TEXT,
-                        RequestParameters.NativeAdAsset.MAIN_IMAGE))
+                        RequestParameters.NativeAdAsset.MAIN_IMAGE,
+                        RequestParameters.NativeAdAsset.ICON_IMAGE))
                 .build());
     }
 

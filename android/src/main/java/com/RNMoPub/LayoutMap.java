@@ -14,7 +14,7 @@ public class LayoutMap
 
     static{
         map.put("small", R.layout.native_ad);
-        //map.put("big", R.layout.big_native_ad);
+        map.put("big", R.layout.native_ad_big);
     }
 
     public static int Get(String key){

@@ -1,16 +1,16 @@
 <RelativeLayout android:layout_width="match_parent" android:layout_height="150px" xmlns:android="http://schemas.android.com/apk/res/android">
     <ImageView
-        android:id="@+id/ad_image"
+        android:id="@+id/native_image"
         android:layout_width="match_parent"
         android:layout_height="150px"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
 
-    <TextView android:id="@+id/ad_title"  android:layout_width="match_parent" android:layout_height="50px"/>
+    <TextView android:id="@+id/native_title"  android:layout_width="match_parent" android:layout_height="50px"/>
 
     <TextView
-        android:id="@+id/ad_body"
+        android:id="@+id/native_text"
         android:layout_width="match_parent"
         android:layout_height="50px"
         android:layout_alignParentLeft="true"
