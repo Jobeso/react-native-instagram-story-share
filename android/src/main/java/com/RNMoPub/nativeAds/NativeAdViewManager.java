@@ -120,7 +120,8 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
                         RequestParameters.NativeAdAsset.TITLE,
                         RequestParameters.NativeAdAsset.TEXT,
                         RequestParameters.NativeAdAsset.MAIN_IMAGE,
-                        RequestParameters.NativeAdAsset.ICON_IMAGE))
+                        RequestParameters.NativeAdAsset.ICON_IMAGE
+                        RequestParameters.NativeAdAsset.CALL_TO_ACTION_TEXT))
                 .build());
     }
 
