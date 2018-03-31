@@ -21,7 +21,7 @@ NativeAd.defaultProps = {
   onImpression: () => {},
   onSuccess: () => {},
   size: {
-    height: 300,
+    height: 350,
     width: Dimensions.get('window').width,
   },
 }
