@@ -103,7 +103,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
                             .titleId(R.id.native_title)
                             .textId(R.id.native_text)
                             .mainImageId(R.id.native_main_image)
-                            .iconIamgeId(R.id.native_icon_image)
+                            .iconImageId(R.id.native_icon_image)
                             .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
                             .callToActionId(R.id.native_cta)
                             .build()));
