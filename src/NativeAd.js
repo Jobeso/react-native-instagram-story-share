@@ -4,15 +4,25 @@ import PropTypes from 'prop-types'
 
 const NativeComponent = requireNativeComponent('NativeAd', NativeAd)
 
+const LAYOUT = {
+  BIG: 'BIG',
+  SMALL: 'SMALL',
+}
+
 const DIMENSIONS = {
-  big: {
+  [LAYOUT.BIG]: {
     height: 400,
+    width: Math.floor(Dimensions.get('window').width),
+  },
+  [LAYOUT.SMALL]: {
+    height: 200,
     width: Math.floor(Dimensions.get('window').width),
   },
 }
 
 class NativeAd extends React.Component {
   static DIMENSIONS = DIMENSIONS
+  static LAYOUT = LAYOUT
 
   render() {
     const { layout, style } = this.props
@@ -26,7 +36,7 @@ class NativeAd extends React.Component {
 }
 
 NativeAd.defaultProps = {
-  layout: 'big',
+  layout: LAYOUT.BIG,
   onClick: () => {},
   onFailure: () => {},
   onImpression: () => {},
