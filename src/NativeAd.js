@@ -22,7 +22,7 @@ NativeAd.defaultProps = {
   onSuccess: () => {},
   size: {
     height: 400,
-    width: Dimensions.get('window').width,
+    width: Math.floor(Dimensions.get('window').width),
   },
 }
 
