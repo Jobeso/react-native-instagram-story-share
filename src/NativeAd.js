@@ -4,26 +4,33 @@ import PropTypes from 'prop-types'
 
 const NativeComponent = requireNativeComponent('NativeAd', NativeAd)
 
+const DIMENSIONS = {
+  big: {
+    height: 400,
+    width: Math.floor(Dimensions.get('window').width),
+  },
+}
+
 class NativeAd extends React.Component {
+  static DIMENSIONS = DIMENSIONS
+
   render() {
+    const { layout, style } = this.props
+
     return (
-      <View style={{ ...this.props.style }}>
-        <NativeComponent {...this.props} style={{ ...this.props.size }} />
+      <View style={{ ...style }}>
+        <NativeComponent {...this.props} style={{ ...DIMENSIONS[layout] }} />
       </View>
     )
   }
 }
 
 NativeAd.defaultProps = {
-  layout: 'small',
+  layout: 'big',
   onClick: () => {},
   onFailure: () => {},
   onImpression: () => {},
   onSuccess: () => {},
-  size: {
-    height: 400,
-    width: Math.floor(Dimensions.get('window').width),
-  },
 }
 
 NativeAd.propTypes = {
@@ -32,10 +39,6 @@ NativeAd.propTypes = {
   onFailure: PropTypes.func,
   onImpression: PropTypes.func,
   onSuccess: PropTypes.func,
-  size: PropTypes.shape({
-    height: PropTypes.number,
-    width: PropTypes.number,
-  }),
   unitId: PropTypes.string.isRequired,
 }
 

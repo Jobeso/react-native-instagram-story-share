@@ -1,8 +1,8 @@
 {
   "name": "react-native-mopub",
-  "version": "0.1.1",
-  "author": "Callosum Software <kontakt@callosum-sw.de> (http://callosum-sw.de)",
-  "description": "React Native Wrapper for Mopub",
+  "version": "0.1.2",
+  "author": "Callosum Software <kontakt@callosum-sw.de>",
+  "description": "React Native Wrapper for MoPub",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
   "publishConfig": {
     "registry": "http://138.68.78.217:4873"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "babel-preset-react-native": "^4.0.0",
