@@ -1,14 +1,15 @@
 {
   "name": "react-native-mopub",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
   "author": "Callosum Software <kontakt@callosum-sw.de> (http://callosum-sw.de)",
   "description": "React Native Wrapper for Mopub",
   "main": "src/index.js",
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/Tellonym/react-native-mopub.git"
+  },
+  "publishConfig": {
+    "registry": "http://138.68.78.217:4873"
   },
   "license": "MIT",
   "devDependencies": {
