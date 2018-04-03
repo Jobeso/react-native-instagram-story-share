@@ -25,11 +25,12 @@ class NativeAd extends React.Component {
   static LAYOUT = LAYOUT
 
   render() {
-    const { layout, style } = this.props
-
     return (
-      <View style={{ ...style }}>
-        <NativeComponent {...this.props} style={{ ...DIMENSIONS[layout] }} />
+      <View style={this.props.style}>
+        <NativeComponent
+          {...this.props}
+          style={DIMENSIONS[this.props.layout.toUpperCase()]}
+        />
       </View>
     )
   }

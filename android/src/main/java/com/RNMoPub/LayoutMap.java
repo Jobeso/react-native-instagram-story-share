@@ -13,8 +13,8 @@ public class LayoutMap
     private static HashMap<String, Integer> map = new HashMap<>();
 
     static{
-        map.put("small", R.layout.native_ad);
-        map.put("big", R.layout.native_ad_big);
+        map.put("SMALL", R.layout.native_ad);
+        map.put("BIG", R.layout.native_ad_big);
     }
 
     public static int Get(String key){
