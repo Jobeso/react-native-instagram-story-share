@@ -13,15 +13,15 @@ const LAYOUT = {
 const DIMENSIONS = {
   [LAYOUT.BIG]: {
     height: 400,
-    width: '100%',
+    width: Dimensions.get('window').width,
   },
   [LAYOUT.MEDIUM]: {
     height: 300,
-    width: '100%',
+    width: Dimensions.get('window').width,
   },
   [LAYOUT.SMALL]: {
     height: 200,
-    width: '100%',
+    width: Dimensions.get('window').width,
   },
 }
 
