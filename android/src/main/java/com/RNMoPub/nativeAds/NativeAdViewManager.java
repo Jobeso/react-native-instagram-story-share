@@ -178,7 +178,6 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
                         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
                         themedReactContext.startActivity(launchBrowser);
                     }catch(Exception e){
-                        // TODO Do something with the error
                     }
                 }
             });

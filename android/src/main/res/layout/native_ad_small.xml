@@ -3,7 +3,7 @@
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@colors/background">
+    android:background="@color/background">
     <ImageView android:id="@+id/native_icon_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@colors/title_text"
+        android:textColor="@color/title_text"
         android:textStyle="bold" />
 
     <TextView android:id="@+id/native_text1"
@@ -36,7 +36,7 @@
         android:maxLines="3"
         android:ellipsize="end"
         android:text="dsofpj spodfj psdjf psdjfp sdjfpo sdfn skldfn klsdnf klsdnfok nsdof nsdklf nklsdfn lksdfn lksdnf klsdnf klsdnf lksdnf l"
-        android:textColor="@colors/body_text" />
+        android:textColor="@color/body_text" />
 
     <Button
         android:id="@+id/native_cta"

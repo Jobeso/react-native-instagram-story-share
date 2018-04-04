@@ -3,7 +3,7 @@
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@color/background">
 
     <TextView android:id="@+id/native_title"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:maxLines="2"
         android:ellipsize="end"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@colors/title_text"
+        android:textColor="@color/title_text"
         android:textStyle="bold" />
 
     <ImageView android:id="@+id/native_main_image"
