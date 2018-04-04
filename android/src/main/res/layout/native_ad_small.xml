@@ -25,7 +25,7 @@
         android:textColor="@color/title_text"
         android:textStyle="bold" />
 
-    <TextView android:id="@+id/native_text1"
+    <TextView android:id="@+id/native_text"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/native_title"
@@ -43,11 +43,11 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/button_height"
         android:text="@string/learn_more"
-        android:textColor="@android:color/black"
+        android:textColor="@color/cta_text"
         android:textStyle="bold"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/native_text1"
+        android:layout_below="@+id/native_text"
         android:textSize="12sp"
         android:layout_alignParentRight="true"
         android:clickable="true"
