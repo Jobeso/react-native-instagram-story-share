@@ -12,7 +12,7 @@ const LAYOUT = {
 
 const DIMENSIONS = {
   [LAYOUT.BIG]: {
-    height: 400,
+    height: 360,
     width: Dimensions.get('window').width,
   },
   [LAYOUT.MEDIUM]: {
