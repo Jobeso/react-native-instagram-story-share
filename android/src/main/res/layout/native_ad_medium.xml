@@ -4,38 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white">
+
     <TextView android:id="@+id/native_title"
         android:layout_width="match_parent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:padding="@dimen/space"
         android:maxLines="2"
         android:ellipsize="end"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@colors/title_text"
         android:textStyle="bold" />
 
     <ImageView android:id="@+id/native_main_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
+        android:layout_height="@dimen/native_main_image_height"
+        android:background="@null"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:layout_below="@+id/native_title"
-        android:contentDescription="@string/native_main_image" />
-
-    <Button
-        android:id="@+id/native_cta"
-        android:layout_below="@+id/native_main_image"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="@dimen/space"
-        android:layout_marginEnd="@dimen/space"
-        android:padding="@dimen/space"
-        android:maxLines="1"
-        android:maxLength="25"
-        android:text="@string/learn_more"
-        android:textColor="@android:color/black"
-        android:textStyle="bold" />
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/native_main_image"
+        android:scaleType="centerCrop"/>
 
     <ImageView
         android:id="@+id/native_privacy_information_icon_image"

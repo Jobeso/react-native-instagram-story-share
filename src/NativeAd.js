@@ -16,11 +16,11 @@ const DIMENSIONS = {
     width: Dimensions.get('window').width,
   },
   [LAYOUT.MEDIUM]: {
-    height: 300,
+    height: 260,
     width: Dimensions.get('window').width,
   },
   [LAYOUT.SMALL]: {
-    height: 200,
+    height: 137,
     width: Dimensions.get('window').width,
   },
 }

@@ -3,23 +3,40 @@
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="@colors/background">
     <ImageView android:id="@+id/native_icon_image"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:background="@null"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/space"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         />
 
-    <TextView android:id="@+id/native_text"
+    <TextView android:id="@+id/native_title"
         android:layout_width="match_parent"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_margin="@dimen/space"
-        android:textColor="@android:color/darker_gray" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@colors/title_text"
+        android:textStyle="bold" />
 
+    <TextView android:id="@+id/native_text1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/native_title"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="84dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:text="dsofpj spodfj psdjf psdjfp sdjfpo sdfn skldfn klsdnf klsdnfok nsdof nsdklf nklsdfn lksdfn lksdnf klsdnf klsdnf lksdnf l"
+        android:textColor="@colors/body_text" />
 
     <Button
         android:id="@+id/native_cta"
@@ -28,12 +45,15 @@
         android:text="@string/learn_more"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        android:layout_margin="@dimen/space"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/native_text1"
         android:textSize="12sp"
         android:layout_alignParentRight="true"
-        android:clickable="true" />
+        android:clickable="true"
+        android:paddingBottom="10dp" />
 
-        <ImageView
+    <ImageView
         android:id="@+id/native_privacy_information_icon_image"
         android:background="@null"
         android:layout_width="40dp"
