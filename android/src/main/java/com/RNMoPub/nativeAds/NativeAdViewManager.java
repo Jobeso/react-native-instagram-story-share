@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactMethod;
@@ -145,8 +146,15 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     public void setLayout(View view, @Nullable String layout) {
         this.layout = LayoutMap.Get(layout);
         if(this.layout >= 0){
-            ((RelativeLayout)adView).removeAllViews();
-            ((RelativeLayout)adView).addView(LayoutInflater.from(themedReactContext).inflate(this.layout, null));
+            RelativeLayout base = ((RelativeLayout)adView);
+            View ad = LayoutInflater.from(themedReactContext).inflate(this.layout, null);
+            if(ad.getParent() == base) {
+                int index = base.indexOfChild(ad);
+                base.removeViewAt(index);
+                base.addView(ad, index);
+            }else{
+                base.addView(ad);
+            }
         }else {
             // TODO log error or warning
         }
@@ -166,6 +174,14 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         nativeAd.setMoPubNativeEventListener(this);
         nativeAd.renderAdView(adView);
         nativeAd.prepare(adView);
+
+        View privacyIcon = ((RelativeLayout)adView).findViewById(R.id.native_privacy_information_icon_image);
+        privacyIcon.setOnClickListener(new View.onClickListener() {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(themedReactContext, text: "Privacy Icon Clicked", Toast.LENGTH_SHORT).show();
+        }
+        });
     }
 
     /**
