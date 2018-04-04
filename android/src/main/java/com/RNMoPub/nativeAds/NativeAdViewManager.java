@@ -1,5 +1,7 @@
 package com.RNMoPub.nativeAds;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -166,13 +168,21 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         nativeAd.renderAdView(adView);
         nativeAd.prepare(adView);
 
-        View privacyIcon = ((RelativeLayout) adView).findViewById(R.id.native_privacy_information_icon_image);
-        privacyIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(themedReactContext, "Privacy Icon Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+        View privacyIcon = adView.findViewById(R.id.native_privacy_information_icon_image);
+        if(privacyIcon != null){
+            privacyIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try{
+                        Uri uriUrl = Uri.parse("https://www.mopub.com/optout/");
+                        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                        themedReactContext.startActivity(launchBrowser);
+                    }catch(Exception e){
+                        // TODO Do something with the error
+                    }
+                }
+            });
+        }
     }
 
     /**
