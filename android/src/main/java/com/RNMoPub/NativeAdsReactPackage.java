@@ -19,8 +19,6 @@ public class NativeAdsReactPackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-          return Arrays.<ViewManager>asList(
-            new NativeAdViewManager()
-    );
+    return Arrays.<ViewManager>asList(new NativeAdViewManager());
   }
 }

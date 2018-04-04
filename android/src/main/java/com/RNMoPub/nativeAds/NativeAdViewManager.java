@@ -33,8 +33,8 @@ import java.util.Map;
  * Created by Sven Steinert on 23.03.2018.
  */
 
-public class NativeAdViewManager extends SimpleViewManager<View> implements View.OnAttachStateChangeListener, MoPubNative.MoPubNativeNetworkListener, NativeAd.MoPubNativeEventListener
-{
+public class NativeAdViewManager extends SimpleViewManager<View> implements View.OnAttachStateChangeListener,
+        MoPubNative.MoPubNativeNetworkListener, NativeAd.MoPubNativeEventListener {
     public static final String REACT_CLASS = "NativeAd";
     public static final String FAILURE_EVENT = "onFailure";
     public static final String SUCCESS_EVENT = "onSuccess";
@@ -57,8 +57,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
      * @return The manually created View.
      */
     @Override
-    public View createViewInstance(ThemedReactContext context)
-    {
+    public View createViewInstance(ThemedReactContext context) {
         themedReactContext = context;
         emitter = context.getJSModule(RCTEventEmitter.class);
         adView = LayoutInflater.from(context).inflate(R.layout.initial, null);
@@ -86,42 +85,34 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
      * This method is accessible by react-native and reloads the ad.
      */
     @ReactMethod
-    public void reload()
-    {
+    public void reload() {
         RequestAdInternal();
     }
 
     /**
      * Requests a new ad.
      */
-    private void RequestAdInternal()
-    {
-        if(unitId == null || layout < 0){
+    private void RequestAdInternal() {
+        if (unitId == null || layout < 0) {
             return;
         }
         mopubNative = new MoPubNative(themedReactContext.getCurrentActivity(), unitId, this);
-        mopubNative.registerAdRenderer(new MoPubStaticNativeAdRenderer(new ViewBinder.Builder(layout)
-                            .titleId(R.id.native_title)
-                            .textId(R.id.native_text)
-                            .mainImageId(R.id.native_main_image)
-                            .iconImageId(R.id.native_icon_image)
-                            .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-                            .callToActionId(R.id.native_cta)
-                            .build()));
+        mopubNative.registerAdRenderer(new MoPubStaticNativeAdRenderer(
+                new ViewBinder.Builder(layout).titleId(R.id.native_title).textId(R.id.native_text)
+                        .mainImageId(R.id.native_main_image).iconImageId(R.id.native_icon_image)
+                        .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+                        .callToActionId(R.id.native_cta).build()));
         /* For developers
             You can add extra informations like:
             .addExtra("sponsoredtext", R.id.sponsored_text)
             .addExtra("sponsoredimage", R.id.sponsored_image)
-
+        
             from: https://developers.mopub.com/docs/android/native/
          */
 
         mopubNative.makeRequest(new RequestParameters.Builder()
-                .desiredAssets(EnumSet.of(
-                        RequestParameters.NativeAdAsset.TITLE,
-                        RequestParameters.NativeAdAsset.TEXT,
-                        RequestParameters.NativeAdAsset.MAIN_IMAGE,
-                        RequestParameters.NativeAdAsset.ICON_IMAGE,
+                .desiredAssets(EnumSet.of(RequestParameters.NativeAdAsset.TITLE, RequestParameters.NativeAdAsset.TEXT,
+                        RequestParameters.NativeAdAsset.MAIN_IMAGE, RequestParameters.NativeAdAsset.ICON_IMAGE,
                         RequestParameters.NativeAdAsset.CALL_TO_ACTION_TEXT))
                 .build());
     }
@@ -145,17 +136,17 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     @ReactProp(name = "layout")
     public void setLayout(View view, @Nullable String layout) {
         this.layout = LayoutMap.Get(layout);
-        if(this.layout >= 0){
-            RelativeLayout base = ((RelativeLayout)adView);
+        if (this.layout >= 0) {
+            RelativeLayout base = ((RelativeLayout) adView);
             View ad = LayoutInflater.from(themedReactContext).inflate(this.layout, null);
-            if(ad.getParent() == base) {
+            if (ad.getParent() == base) {
                 int index = base.indexOfChild(ad);
                 base.removeViewAt(index);
                 base.addView(ad, index);
-            }else{
+            } else {
                 base.addView(ad);
             }
-        }else {
+        } else {
             // TODO log error or warning
         }
         RequestAdInternal();
@@ -175,12 +166,12 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         nativeAd.renderAdView(adView);
         nativeAd.prepare(adView);
 
-        View privacyIcon = ((RelativeLayout)adView).findViewById(R.id.native_privacy_information_icon_image);
+        View privacyIcon = ((RelativeLayout) adView).findViewById(R.id.native_privacy_information_icon_image);
         privacyIcon.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(themedReactContext, "Privacy Icon Clicked", Toast.LENGTH_SHORT).show();
-        }
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(themedReactContext, "Privacy Icon Clicked", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -215,7 +206,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     /**
      * Emits a react native event.
      */
-    private void SendOnSuccess(){
+    private void SendOnSuccess() {
         WritableMap event = Arguments.createMap();
         emitter.receiveEvent(adView.getId(), SUCCESS_EVENT, event);
     }
@@ -223,7 +214,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     /**
      * Emits a react native event.
      */
-    private void SendOnFailure(String message){
+    private void SendOnFailure(String message) {
         WritableMap event = Arguments.createMap();
         event.putString("message", message);
         emitter.receiveEvent(adView.getId(), FAILURE_EVENT, event);
@@ -232,7 +223,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     /**
      * Emits a react native event.
      */
-    private void SendOnImpression(){
+    private void SendOnImpression() {
         WritableMap event = Arguments.createMap();
         emitter.receiveEvent(adView.getId(), IMPRESSION_EVENT, event);
     }
@@ -240,25 +231,26 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     /**
      * Emits a react native event.
      */
-    private void SendOnClick(){
+    private void SendOnClick() {
         WritableMap event = Arguments.createMap();
         emitter.receiveEvent(adView.getId(), CLICK_EVENT, event);
     }
 
     @Override
-    public void onViewAttachedToWindow(View v) { }
+    public void onViewAttachedToWindow(View v) {
+    }
 
-    /**
+    /** 
      * This function is called if the view was disposed.
      * Destorys the native ad helper and mopub native.
      * @param v The view which was disposed
      */
     @Override
     public void onViewDetachedFromWindow(View v) {
-        if(nativeAdHelper != null){
+        if (nativeAdHelper != null) {
             nativeAdHelper.destroy();
         }
-        if(mopubNative != null){
+        if (mopubNative != null) {
             mopubNative.destroy();
         }
     }
