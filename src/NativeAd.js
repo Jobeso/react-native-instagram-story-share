@@ -6,17 +6,22 @@ const NativeComponent = requireNativeComponent('NativeAd', NativeAd)
 
 const LAYOUT = {
   BIG: 'BIG',
+  MEDIUM: 'MEDIUM',
   SMALL: 'SMALL',
 }
 
 const DIMENSIONS = {
   [LAYOUT.BIG]: {
     height: 400,
-    width: Math.floor(Dimensions.get('window').width),
+    width: '100%',
+  },
+  [LAYOUT.MEDIUM]: {
+    height: 300,
+    width: '100%',
   },
   [LAYOUT.SMALL]: {
     height: 200,
-    width: Math.floor(Dimensions.get('window').width),
+    width: '100%',
   },
 }
 
