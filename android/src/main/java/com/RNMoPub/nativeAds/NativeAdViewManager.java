@@ -176,7 +176,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         nativeAd.prepare(adView);
 
         View privacyIcon = ((RelativeLayout)adView).findViewById(R.id.native_privacy_information_icon_image);
-        privacyIcon.setOnClickListener(new View.onClickListener() {
+        privacyIcon.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             Toast.makeText(themedReactContext, "Privacy Icon Clicked", Toast.LENGTH_SHORT).show();
