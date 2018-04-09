@@ -1,8 +1,16 @@
 import React from 'react' // eslint-disable-line
-import { Dimensions, requireNativeComponent, View } from 'react-native' // eslint-disable-line
+import {
+  Dimensions,
+  Platform,
+  requireNativeComponent,
+  View,
+} from 'react-native' // eslint-disable-line
 import PropTypes from 'prop-types'
 
-const NativeComponent = requireNativeComponent('NativeAd', NativeAd)
+const NativeComponent =
+  Platform.OS === 'ios'
+    ? requireNativeComponent('RNTView', NativeAd)
+    : requireNativeComponent('NativeAd', NativeAd)
 
 const LAYOUT = {
   BIG: 'BIG',
@@ -29,12 +37,25 @@ class NativeAd extends React.Component {
   static DIMENSIONS = DIMENSIONS
   static LAYOUT = LAYOUT
 
+  state = { isAdRendered: true }
+
   render() {
+    const { isAdRendered } = this.state
     return (
-      <View style={this.props.style}>
+      <View
+        style={{
+          ...this.props.style,
+          height: isAdRendered ? this.props.height : 0,
+        }}
+      >
         <NativeComponent
           {...this.props}
+          onSuccess={e => {
+            this.setState({ isAdRendered: true })
+            this.props.onSuccess(e)
+          }}
           style={DIMENSIONS[this.props.layout.toUpperCase()]}
+          unitID={this.props.unitId}
         />
       </View>
     )
