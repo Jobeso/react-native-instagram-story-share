@@ -48,6 +48,7 @@
 
     <Button
         android:id="@+id/native_cta"
+        android:background="@drawable/secondary_button"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/button_height"
         android:text="@string/learn_more"
