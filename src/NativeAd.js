@@ -24,7 +24,7 @@ const DIMENSIONS = {
     width: Dimensions.get('window').width,
   },
   [LAYOUT.MEDIUM]: {
-    height: 260,
+    height: 241,
     width: Dimensions.get('window').width,
   },
   [LAYOUT.SMALL]: {

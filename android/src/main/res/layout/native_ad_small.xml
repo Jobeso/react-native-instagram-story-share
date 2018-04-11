@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/native_outer_view"
@@ -35,11 +36,11 @@
         android:layout_marginRight="10dp"
         android:maxLines="3"
         android:ellipsize="end"
-        android:text="dsofpj spodfj psdjf psdjfp sdjfpo sdfn skldfn klsdnf klsdnfok nsdof nsdklf nklsdfn lksdfn lksdnf klsdnf klsdnf lksdnf l"
         android:textColor="@color/body_text" />
 
-    <Button
+ <Button
         android:id="@+id/native_cta"
+        android:background="@drawable/cta_button"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/button_height"
         android:text="@string/learn_more"
