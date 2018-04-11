@@ -56,3 +56,4 @@ misc/
 .vscode/last.sql
 Pods
 tmp/
+android/build/

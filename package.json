@@ -1,6 +1,6 @@
 {
   "name": "react-native-mopub",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "author": "Callosum Software <kontakt@callosum-sw.de>",
   "description": "React Native Wrapper for MoPub",
   "main": "src/index.js",
