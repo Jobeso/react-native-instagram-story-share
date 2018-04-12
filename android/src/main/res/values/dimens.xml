@@ -17,6 +17,6 @@
     <dimen name="space">8dp</dimen>
     <dimen name="button_radius">3dp</dimen>
     <dimen name="button_border">1dp</dimen>
-    <dimen name="button_height">38dp</dimen>
+    <dimen name="button_height">32dp</dimen>
     <dimen name="meta_button_width">50dp</dimen>
 </resources>

@@ -24,6 +24,17 @@ dependencies {
     compile('com.mopub:mopub-sdk:4.16.0@aar') {
          transitive = true
      }
+    // Google (AdMob)
+    compile 'com.google.android.gms:play-services-ads:11.8.0'
+    compile 'com.mopub.mediation:admob:11.8.0.0'
+
+    // Yahoo! Flurry
+    compile 'com.flurry.android:ads:9.0.0'
+    compile 'com.mopub.mediation:flurry:9.0.0.0'
+
+    // Facebook Audience Network
+    compile 'com.facebook.android:audience-network-sdk:4.28.1'
+    compile 'com.mopub.mediation:facebookaudiencenetwork:4.28.1.0'
 }
 
 repositories {

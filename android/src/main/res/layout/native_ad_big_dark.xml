@@ -3,7 +3,7 @@
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background"
+    android:background="@color/background_dark"
     android:padding="15dp"
     android:paddingBottom="10dp"
     android:paddingRight="20dp">
@@ -43,7 +43,7 @@
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:maxLines="2"
-        android:textColor="@color/body_text" />
+        android:textColor="@color/body_text_dark" />
 
 
     <ImageView

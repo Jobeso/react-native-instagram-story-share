@@ -14,12 +14,17 @@ const NativeComponent =
 
 const LAYOUT = {
   BIG: 'BIG',
+  BIG_DARK: 'BIG_DARK',
   MEDIUM: 'MEDIUM',
   SMALL: 'SMALL',
 }
 
 const DIMENSIONS = {
   [LAYOUT.BIG]: {
+    height: 360,
+    width: Dimensions.get('window').width,
+  },
+  [LAYOUT.BIG_DARK]: {
     height: 360,
     width: Dimensions.get('window').width,
   },
