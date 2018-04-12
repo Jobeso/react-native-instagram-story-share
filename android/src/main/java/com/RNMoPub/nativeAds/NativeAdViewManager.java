@@ -98,12 +98,15 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         if (unitId == null || layout < 0) {
             return;
         }
+        Map<String,Integer> extraToResourceMap=new HashMap<>(1);   
+        extraToResourceMap.put(FlurryCustomEventNative.EXTRA_SEC_BRANDING_LOGO, R.id.native_privacy_information_icon_image);
+
         mopubNative = new MoPubNative(themedReactContext.getCurrentActivity(), unitId, this);
         mopubNative.registerAdRenderer(new MoPubStaticNativeAdRenderer(
                 new ViewBinder.Builder(layout).titleId(R.id.native_title).textId(R.id.native_text)
                         .mainImageId(R.id.native_main_image).iconImageId(R.id.native_icon_image)
                         .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-                        .callToActionId(R.id.native_cta).build()));
+                        .callToActionId(R.id.native_cta).addExtras(extraToResourceMap).build()));
         /* For developers
             You can add extra informations like:
             .addExtra("sponsoredtext", R.id.sponsored_text)
