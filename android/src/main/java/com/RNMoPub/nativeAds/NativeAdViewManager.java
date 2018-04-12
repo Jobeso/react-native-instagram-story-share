@@ -27,6 +27,7 @@ import com.mopub.nativeads.RequestParameters;
 import com.mopub.nativeads.ViewBinder;
 import com.RNMoPub.LayoutMap;
 import com.RNMoPub.R;
+import com.mopub.nativeads.FlurryCustomEventNative.FlurryCustomEventNative;
 
 import java.util.EnumSet;
 import java.util.Map;
