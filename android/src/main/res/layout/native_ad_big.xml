@@ -5,34 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background">
-    <ImageView android:id="@+id/native_icon_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@null"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        />
 
-    <TextView android:id="@+id/native_title"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="32dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+    <ImageView
+        android:id="@+id/native_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null" />
+
+    <TextView
+        android:id="@+id/native_title"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/native_icon_image"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginTop="2dp"
+        android:layout_toLeftOf="@+id/native_privacy_information_icon_image"
+        android:layout_toRightOf="@+id/native_icon_image"
         android:textColor="@color/title_text"
         android:textStyle="bold" />
 
-    <TextView android:id="@+id/native_text"
-        android:ellipsize="end"
+    <TextView
+        android:id="@+id/native_text"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_below="@+id/native_icon_image"
         android:layout_alignParentLeft="true"
+        android:layout_below="@+id/native_icon_image"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
+        android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@color/body_text" />
 

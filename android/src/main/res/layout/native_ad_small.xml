@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/background">
-    <ImageView android:id="@+id/native_icon_image"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@null"
+
+    <ImageView
+        android:id="@+id/native_icon_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        />
+        android:layout_marginTop="10dp"
+        android:background="@null" />
 
     <TextView android:id="@+id/native_title"
         android:layout_width="match_parent"
