@@ -19,8 +19,7 @@
 -(void)onImpression:(NativeAd *)view;
 @end
 
-@interface NativeAd : UIView <MPNativeAdDelegate>
-
+@interface NativeAd : UIView <MPNativeAdDelegate,MPNativeAdAdapter,MPNativeAdAdapterDelegate>
 @property(strong, nonatomic) NSString *unitId;
 @property(strong, nonatomic) NSString *layout;
 @property(strong, nonatomic) MPNativeAd *nativeAd;
