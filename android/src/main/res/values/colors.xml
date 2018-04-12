@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#fff</color>
+    <color name="background_dark">#19222d</color>
     <color name="body_text">#14171a</color>
+    <color name="body_text_dark">#ccc</color>
     <color name="cta_background">#ff4486</color>
     <color name="cta_text">#fff</color>
     <color name="primary">#ff4486</color>
