@@ -30,6 +30,7 @@ import com.RNMoPub.R;
 import com.mopub.nativeads.FlurryCustomEventNative.FlurryCustomEventNative;
 
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -99,7 +100,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         if (unitId == null || layout < 0) {
             return;
         }
-        Map<String,Integer> extraToResourceMap=new HashMap<>(1);   
+        Map<String,Integer> extraToResourceMap=new HashMap<>(1);
         extraToResourceMap.put(FlurryCustomEventNative.EXTRA_SEC_BRANDING_LOGO, R.id.native_privacy_information_icon_image);
 
         mopubNative = new MoPubNative(themedReactContext.getCurrentActivity(), unitId, this);
