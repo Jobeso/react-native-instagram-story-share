@@ -6,10 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactMethod;
@@ -27,7 +24,7 @@ import com.mopub.nativeads.RequestParameters;
 import com.mopub.nativeads.ViewBinder;
 import com.RNMoPub.LayoutMap;
 import com.RNMoPub.R;
-import com.mopub.nativeads.FlurryCustomEventNative.FlurryCustomEventNative;
+import com.mopub.nativeads.FlurryCustomEventNative;
 
 import java.util.EnumSet;
 import java.util.HashMap;
