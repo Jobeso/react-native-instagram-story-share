@@ -40,7 +40,7 @@ const getDimensions = layout => {
     case LAYOUT.MOPUB_NATIVEAD_SMALL_DARK:
     default:
       return {
-        height: 180,
+        height: 137,
         width,
       }
   }
