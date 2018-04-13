@@ -43,23 +43,8 @@
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:maxLines="5"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/body_text" />
-
-    <Button
-        android:id="@+id/native_cta"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/native_text"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/cta_button"
-        android:clickable="true"
-        android:paddingBottom="1dp"
-        android:text="@string/learn_more"
-        android:textColor="@color/cta_text"
-        android:textSize="12sp"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/native_privacy_information_icon_image"
