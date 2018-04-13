@@ -17,6 +17,7 @@
   self.callToActionLabel.layer.cornerRadius = 5.0;
   self.callToActionLabel.layer.masksToBounds = YES;
   _constraintTitleLabelWidth.constant = [UIScreen mainScreen].bounds.size.width - 143;
+  [self bringSubviewToFront:self.privacyInformationIconImageView];
 }
 
 - (UILabel *)nativeMainTextLabel
@@ -48,7 +49,6 @@
 {
   return self.privacyInformationIconImageView;
 }
-
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {

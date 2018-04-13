@@ -13,6 +13,9 @@
 
 @implementation NativeAd
 @synthesize delegate;
+CGFloat bigHeight    = 360 ;
+CGFloat mediumHeight = 260 ;
+CGFloat smallHeight  = 137 ;
 
 - (void)setUnitId:(NSString *)unitId {
   
@@ -35,14 +38,18 @@
   NSLog(@"%@",self.localunitId);
 
   MPStaticNativeAdRendererSettings *settings = [[MPStaticNativeAdRendererSettings alloc] init];
+  CGFloat height = bigHeight;
   if ([self.localLayout isEqualToString:@"BIG"]) {
     settings.renderingViewClass = [NativeAdBig class];
+    height = bigHeight;
   }
   else if ([self.localLayout isEqualToString:@"MEDIUM"]) {
     settings.renderingViewClass = [NativeAdMedium class];
+    height = mediumHeight;
   }
   else if ([self.localLayout isEqualToString:@"SMALL"]) {
     settings.renderingViewClass = [NativeAdSmall class];
+    height = smallHeight;
   }
   MPNativeAdRendererConfiguration *config = [MPStaticNativeAdRenderer rendererConfigurationWithRendererSettings:settings];
   MPNativeAdRequest *adRequest = [MPNativeAdRequest requestWithAdUnitIdentifier:self.localunitId rendererConfigurations:@[config]];
@@ -62,8 +69,8 @@
         UIView *nativeAdView = [response retrieveAdViewWithError:nil];
         CGRect screenSize = [UIScreen mainScreen].bounds;
         //   NSLog(@"Layout -- %@",_layout);
-        nativeAdView.frame = CGRectMake(0,0,screenSize.size.width, screenSize.size.height);
-        nativeAdView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        nativeAdView.frame = CGRectMake(0,0,screenSize.size.width, height);
+        nativeAdView.backgroundColor = [UIColor whiteColor];
         [self addSubview:nativeAdView];
 //        [self bringSubviewToFront:nativeAdView];
         [self layoutIfNeeded];
@@ -86,6 +93,7 @@
   self = [super initWithFrame:frame];
   if (self) {
     [self customInit];
+    self.backgroundColor = [UIColor groupTableViewBackgroundColor];
   }
   return self;
 }
