@@ -1,14 +1,15 @@
 //
 //  NativeAdSmall.h
-//  AddDemo
+//  MyAdProject
 //
 //  Created by stutid366 on 08/04/18.
 //  Copyright © 2018 Facebook. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseView.h"
 
-@interface NativeAdSmall : UIView
+@interface NativeAdSmall : BaseView
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *mainTextLabel;

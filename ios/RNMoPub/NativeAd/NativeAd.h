@@ -1,6 +1,6 @@
 //
 //  NativeAd.h
-//  AddDemo
+//  MyAdProject
 //
 //  Created by stutid366 on 07/04/18.
 //  Copyright © 2018 Facebook. All rights reserved.

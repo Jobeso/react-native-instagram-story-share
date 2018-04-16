@@ -1,6 +1,6 @@
 //
 //  NativeAdBig.h
-//  AddDemo
+//  MyAdProject
 //
 //  Created by stutid366 on 04/04/18.
 //  Copyright © 2018 Facebook. All rights reserved.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MoPub.h"
+#import "BaseView.h"
 
-@interface NativeAdBig : UIView
+@interface NativeAdBig : BaseView
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *mainTextLabel;

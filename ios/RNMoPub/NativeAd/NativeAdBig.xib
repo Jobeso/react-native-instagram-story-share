@@ -19,6 +19,8 @@
                 <outlet property="mainTextLabel" destination="hEG-8A-k2e" id="2WQ-15-llf"/>
                 <outlet property="privacyInformationIconImageView" destination="DBR-gB-uYv" id="ftz-9A-ulP"/>
                 <outlet property="titleLabel" destination="Zhz-AN-LlM" id="yoL-U2-FOc"/>
+                <outlet property="topOtherconstraint" destination="rIb-KV-H5S" id="izN-8w-2hR"/>
+                <outlet property="topViewconstraint" destination="T8j-ZN-cz8" id="BDa-f4-BZa"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

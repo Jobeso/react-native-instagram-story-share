@@ -1,6 +1,6 @@
 //
 //  NativeAd.m
-//  AddDemo
+//  MyAdProject
 //
 //  Created by stutid366 on 07/04/18.
 //  Copyright © 2018 Facebook. All rights reserved.
@@ -10,12 +10,14 @@
 #import "NativeAdBig.h"
 #import "NativeAdMedium.h"
 #import "NativeAdSmall.h"
+#import "BaseView.h"
 
 @implementation NativeAd
 @synthesize delegate;
 CGFloat bigHeight    = 360 ;
 CGFloat mediumHeight = 260 ;
 CGFloat smallHeight  = 137 ;
+
 
 - (void)setUnitId:(NSString *)unitId {
   
@@ -70,9 +72,15 @@ CGFloat smallHeight  = 137 ;
         CGRect screenSize = [UIScreen mainScreen].bounds;
         //   NSLog(@"Layout -- %@",_layout);
         nativeAdView.frame = CGRectMake(0,0,screenSize.size.width, height);
-        nativeAdView.backgroundColor = [UIColor whiteColor];
         [self addSubview:nativeAdView];
-//        [self bringSubviewToFront:nativeAdView];
+        
+        for (UIView *view in nativeAdView.subviews) {
+          if ([view isKindOfClass:[BaseView class]]) {
+            BaseView * myView = (BaseView *) view;
+            myView.topViewconstraint.constant = self.frame.origin.y;
+            myView.topOtherconstraint.constant = self.frame.origin.y + 11;
+          }
+        }
         [self layoutIfNeeded];
         [self.delegate onSuccess:self];
       });
@@ -106,7 +114,7 @@ CGFloat smallHeight  = 137 ;
 
 - (UIViewController *)viewControllerForPresentingModalView
 {
-  return [UIApplication sharedApplication].delegate.window.rootViewController;
+return [UIApplication sharedApplication].delegate.window.rootViewController;
 }
 
 - (void)willPresentModalForNativeAd:(MPNativeAd *)nativeAd {

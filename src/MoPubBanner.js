@@ -1,5 +1,5 @@
-import React, {Component, PropTypes} from 'react';
-import { requireNativeComponent, View, StyleSheet } from 'react-native'; 
+import React, { Component, PropTypes } from 'react'
+import { requireNativeComponent, View, StyleSheet } from 'react-native'
 
 const BannerPropTypes = {
   adUnitId: PropTypes.string.isRequired,
@@ -12,21 +12,23 @@ const BannerPropTypes = {
   onClicked: PropTypes.func,
   onExpanded: PropTypes.func,
   onCollapsed: PropTypes.func,
-  ...View.propTypes
-};
+  ...View.propTypes,
+}
 
-const Banner = requireNativeComponent('RNMoPubBanner', {name: 'Banner', propTypes: { ...BannerPropTypes }} );
+const Banner = requireNativeComponent('RNMoPubBanner', {
+  name: 'Banner',
+  propTypes: { ...BannerPropTypes },
+})
 
 export default class MoPubBanner extends Component {
-
   static propTypes = {
-    ...BannerPropTypes
-  };
+    ...BannerPropTypes,
+  }
 
   render() {
     return (
       <View style={styles.bannerContainer}>
-        <Banner 
+        <Banner
           adUnitId={this.props.adUnitId}
           testing={this.props.testing}
           autoRefresh={this.props.autoRefresh}
@@ -39,13 +41,13 @@ export default class MoPubBanner extends Component {
           onCollapsed={this.props.onCollapsed}
         />
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   bannerContainer: {
     height: 50,
-    minWidth: 320
-  }
-});
+    minWidth: 320,
+  },
+})
