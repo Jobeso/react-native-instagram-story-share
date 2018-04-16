@@ -3,7 +3,7 @@
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background"
+    android:background="@color/background_dark"
     android:padding="15dp"
     android:paddingBottom="10dp"
     android:paddingRight="20dp">
@@ -32,25 +32,25 @@
         android:textColor="@color/title_text"
         android:textStyle="bold" />
 
-
-    <ImageView
-        android:id="@+id/native_main_image"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/native_main_image_height"
+    <TextView
+        android:id="@+id/native_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/native_icon_image"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:background="@null"
-        android:contentDescription="@string/native_main_image"
-        android:scaleType="centerCrop" />
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/body_text_dark" />
 
     <ImageView
         android:id="@+id/native_privacy_information_icon_image"
         android:layout_width="16dp"
         android:layout_height="16dp"
-        android:layout_alignEnd="@+id/native_main_image"
+        android:layout_alignEnd="@+id/native_text"
         android:layout_alignTop="@+id/native_icon_image"
         android:background="@null"
         android:clickable="true"

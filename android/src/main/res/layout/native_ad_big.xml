@@ -34,8 +34,8 @@
 
     <TextView
         android:id="@+id/native_text"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/native_icon_image"
         android:layout_marginLeft="10dp"
@@ -43,6 +43,7 @@
         android:layout_marginTop="10dp"
         android:ellipsize="end"
         android:maxLines="2"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/body_text" />
 
 

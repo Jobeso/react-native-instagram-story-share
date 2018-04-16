@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:padding="15dp"
+    android:paddingBottom="10dp"
+    android:paddingRight="20dp">
 
     <ImageView
         android:id="@+id/native_icon_image"
@@ -12,60 +14,46 @@
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
         android:background="@null" />
 
-    <TextView android:id="@+id/native_title"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="10dp"
+    <TextView
+        android:id="@+id/native_title"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/native_icon_image"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="2dp"
+        android:layout_toLeftOf="@+id/native_privacy_information_icon_image"
+        android:layout_toRightOf="@+id/native_icon_image"
         android:textColor="@color/title_text"
         android:textStyle="bold" />
 
-    <TextView android:id="@+id/native_text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/native_title"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp"
-        android:maxLines="3"
-        android:ellipsize="end"
-        android:textColor="@color/body_text" />
-
- <Button
-        android:id="@+id/native_cta"
-        android:background="@drawable/cta_button"
+    <TextView
+        android:id="@+id/native_text"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/learn_more"
-        android:textColor="@color/cta_text"
-        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/native_icon_image"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/native_text"
-        android:textSize="12sp"
-        android:layout_alignParentRight="true"
-        android:clickable="true"
-        android:paddingBottom="10dp" />
+        android:ellipsize="end"
+        android:maxLines="5"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/body_text" />
 
     <ImageView
         android:id="@+id/native_privacy_information_icon_image"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignEnd="@+id/native_text"
+        android:layout_alignTop="@+id/native_icon_image"
         android:background="@null"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:padding="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:textSize="12sp"
-        android:contentDescription="@string/native_privacy_information_icon_image"
         android:clickable="true"
-        android:paddingBottom="10dp" />
+        android:contentDescription="@string/native_privacy_information_icon_image"
+        android:textSize="12sp" />
 </RelativeLayout>

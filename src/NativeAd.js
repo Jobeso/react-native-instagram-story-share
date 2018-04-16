@@ -13,33 +13,41 @@ const NativeComponent =
     : requireNativeComponent('NativeAd', NativeAd)
 
 const LAYOUT = {
-  BIG: 'BIG',
-  BIG_DARK: 'BIG_DARK',
-  MEDIUM: 'MEDIUM',
-  SMALL: 'SMALL',
+  MOPUB_NATIVEAD_BIG: 'MOPUB_NATIVEAD_BIG',
+  MOPUB_NATIVEAD_BIG_DARK: 'MOPUB_NATIVEAD_BIG_DARK',
+  MOPUB_NATIVEAD_MEDIUM: 'MOPUB_NATIVEAD_MEDIUM',
+  MOPUB_NATIVEAD_MEDIUM_DARK: 'MOPUB_NATIVEAD_MEDIUM_DARK',
+  MOPUB_NATIVEAD_SMALL: 'MOPUB_NATIVEAD_SMALL',
+  MOPUB_NATIVEAD_SMALL_DARK: 'MOPUB_NATIVEAD_SMALL_DARK',
 }
 
-const DIMENSIONS = {
-  [LAYOUT.BIG]: {
-    height: 360,
-    width: Dimensions.get('window').width,
-  },
-  [LAYOUT.BIG_DARK]: {
-    height: 360,
-    width: Dimensions.get('window').width,
-  },
-  [LAYOUT.MEDIUM]: {
-    height: 241,
-    width: Dimensions.get('window').width,
-  },
-  [LAYOUT.SMALL]: {
-    height: 137,
-    width: Dimensions.get('window').width,
-  },
+const getDimensions = layout => {
+  const { width } = Dimensions.get('window')
+  switch (layout) {
+    case LAYOUT.MOPUB_NATIVEAD_BIG:
+    case LAYOUT.MOPUB_NATIVEAD_BIG_DARK:
+      return {
+        height: 360,
+        width,
+      }
+    case LAYOUT.MOPUB_NATIVEAD_MEDIUM:
+    case LAYOUT.MOPUB_NATIVEAD_MEDIUM_DARK:
+      return {
+        height: 241,
+        width,
+      }
+    case LAYOUT.MOPUB_NATIVEAD_SMALL:
+    case LAYOUT.MOPUB_NATIVEAD_SMALL_DARK:
+    default:
+      return {
+        height: 137,
+        width,
+      }
+  }
 }
 
 class NativeAd extends React.Component {
-  static DIMENSIONS = DIMENSIONS
+  static getDimensions = getDimensions
   static LAYOUT = LAYOUT
 
   state = { isAdRendered: true }
@@ -59,7 +67,7 @@ class NativeAd extends React.Component {
             this.setState({ isAdRendered: true })
             this.props.onSuccess(e)
           }}
-          style={DIMENSIONS[this.props.layout.toUpperCase()]}
+          style={getDimensions(this.props.layout.toUpperCase())}
           unitID={this.props.unitId}
         />
       </View>
@@ -68,7 +76,7 @@ class NativeAd extends React.Component {
 }
 
 NativeAd.defaultProps = {
-  layout: LAYOUT.BIG,
+  layout: LAYOUT.MOPUB_NATIVEAD_SMALL,
   onClick: () => {},
   onFailure: () => {},
   onImpression: () => {},
