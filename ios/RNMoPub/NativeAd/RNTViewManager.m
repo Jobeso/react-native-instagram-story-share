@@ -1,6 +1,6 @@
 //
 //  AddViewManager.m
-//  AddDemo
+//  MyAdProject
 //
 //  Created by stutid366 on 05/04/18.
 //  Copyright © 2018 Facebook. All rights reserved.
@@ -22,6 +22,7 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_VIEW_PROPERTY(unitId, NSString)
 RCT_EXPORT_VIEW_PROPERTY(layout, NSString)
+RCT_EXPORT_VIEW_PROPERTY(yCoord, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(onSuccess, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onFailure, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onClick, RCTBubblingEventBlock)

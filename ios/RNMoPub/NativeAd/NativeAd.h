@@ -21,6 +21,7 @@
 
 @interface NativeAd : UIView <MPNativeAdDelegate,MPNativeAdAdapter,MPNativeAdAdapterDelegate>
 @property(strong, nonatomic) NSString *unitId;
+@property(strong, nonatomic) NSNumber *yCoord;
 @property(strong, nonatomic) NSString *layout;
 @property(strong, nonatomic) MPNativeAd *nativeAd;
 @property(strong, nonatomic) NSString *localunitId;

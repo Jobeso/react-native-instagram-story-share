@@ -77,8 +77,14 @@ CGFloat smallHeight  = 137 ;
         for (UIView *view in nativeAdView.subviews) {
           if ([view isKindOfClass:[BaseView class]]) {
             BaseView * myView = (BaseView *) view;
-            myView.topViewconstraint.constant = self.frame.origin.y;
-            myView.topOtherconstraint.constant = self.frame.origin.y + 11;
+            if (_yCoord != nil) {
+              myView.topViewconstraint.constant = self.yCoord.intValue;
+              myView.topOtherconstraint.constant = self.yCoord.intValue;
+            }
+            else {
+              myView.topViewconstraint.constant = self.frame.origin.y;
+              myView.topOtherconstraint.constant = self.frame.origin.y + 11;
+            }
           }
         }
         [self layoutIfNeeded];
@@ -114,7 +120,7 @@ CGFloat smallHeight  = 137 ;
 
 - (UIViewController *)viewControllerForPresentingModalView
 {
-return [UIApplication sharedApplication].delegate.window.rootViewController;
+  return [UIApplication sharedApplication].delegate.window.rootViewController;
 }
 
 - (void)willPresentModalForNativeAd:(MPNativeAd *)nativeAd {
