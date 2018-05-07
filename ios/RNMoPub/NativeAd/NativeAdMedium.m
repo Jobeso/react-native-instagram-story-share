@@ -21,7 +21,19 @@
 {
   [super layoutSubviews];
   // layout your views
-  _constraintTitleLabelWidth.constant = [UIScreen mainScreen].bounds.size.width - 65;
+//  _constraintTitleLabelWidth.constant = [UIScreen mainScreen].bounds.size.width - 65;
+  
+  
+  CGRect screenSize = [UIScreen mainScreen].bounds;
+  //Main Image View
+  CGRect frame = self.mainImageView.frame;
+  frame.size.width = screenSize.size.width-40;
+  self.mainImageView.frame = frame;
+  
+  //Privacy Information Icon
+  CGRect frame1 = self.privacyInformationIconImageView.frame;
+  frame1.origin.x = screenSize.size.width-40;
+  self.privacyInformationIconImageView.frame = frame1;
 }
 
 - (UILabel *)nativeMainTextLabel

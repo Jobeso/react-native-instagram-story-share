@@ -41,15 +41,15 @@ CGFloat smallHeight  = 137 ;
 
   MPStaticNativeAdRendererSettings *settings = [[MPStaticNativeAdRendererSettings alloc] init];
   CGFloat height = bigHeight;
-  if ([self.localLayout isEqualToString:@"BIG"]) {
+  if ([self.localLayout isEqualToString:@"MOPUB_NATIVEAD_BIG"]) {
     settings.renderingViewClass = [NativeAdBig class];
     height = bigHeight;
   }
-  else if ([self.localLayout isEqualToString:@"MEDIUM"]) {
+  else if ([self.localLayout isEqualToString:@"MOPUB_NATIVEAD_MEDIUM"]) {
     settings.renderingViewClass = [NativeAdMedium class];
     height = mediumHeight;
   }
-  else if ([self.localLayout isEqualToString:@"SMALL"]) {
+  else if ([self.localLayout isEqualToString:@"MOPUB_NATIVEAD_SMALL"]) {
     settings.renderingViewClass = [NativeAdSmall class];
     height = smallHeight;
   }
@@ -73,25 +73,12 @@ CGFloat smallHeight  = 137 ;
         //   NSLog(@"Layout -- %@",_layout);
         nativeAdView.frame = CGRectMake(0,0,screenSize.size.width, height);
         [self addSubview:nativeAdView];
-        
-        for (UIView *view in nativeAdView.subviews) {
-          if ([view isKindOfClass:[BaseView class]]) {
-            BaseView * myView = (BaseView *) view;
-            if (_yCoord != nil) {
-              myView.topViewconstraint.constant = self.yCoord.intValue;
-              myView.topOtherconstraint.constant = self.yCoord.intValue;
-            }
-            else {
-              myView.topViewconstraint.constant = self.frame.origin.y;
-              myView.topOtherconstraint.constant = self.frame.origin.y + 11;
-            }
-          }
-        }
         [self layoutIfNeeded];
         [self.delegate onSuccess:self];
       });
     }
   }];
+
 }
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -120,7 +107,7 @@ CGFloat smallHeight  = 137 ;
 
 - (UIViewController *)viewControllerForPresentingModalView
 {
-  return [UIApplication sharedApplication].delegate.window.rootViewController;
+return [UIApplication sharedApplication].delegate.window.rootViewController;
 }
 
 - (void)willPresentModalForNativeAd:(MPNativeAd *)nativeAd {

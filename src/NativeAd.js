@@ -68,7 +68,7 @@ class NativeAd extends React.Component {
             this.props.onSuccess(e)
           }}
           style={getDimensions(this.props.layout.toUpperCase())}
-          unitID={this.props.unitId}
+          unitId={this.props.unitId}
         />
       </View>
     )
