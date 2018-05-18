@@ -1,5 +1,5 @@
 //
-//  NativeAdBig.h
+//  NativeAdBigDark.h
 //  MyAdProject
 //
 //  Created by stutid366 on 04/04/18.
@@ -10,7 +10,7 @@
 #import "MoPub.h"
 #import "BaseView.h"
 
-@interface NativeAdBig : BaseView
+@interface NativeAdBigDark : BaseView
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *mainTextLabel;
@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *privacyInformationIconImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintTitleLabelWidth;
+
 
 @end

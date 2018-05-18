@@ -1,14 +1,14 @@
 //
-//  NativeAdBig.m
+//  NativeAdBigDark.m
 //  MyAdProject
 //
 //  Created by stutid366 on 04/04/18.
 //  Copyright © 2018 Facebook. All rights reserved.
 //
 
-#import "NativeAdBig.h"
+#import "NativeAdBigDark.h"
 
-@implementation NativeAdBig
+@implementation NativeAdBigDark
 
 - (void)layoutSubviews
 {
@@ -18,9 +18,6 @@
   self.callToActionLabel.layer.masksToBounds = YES;
   _constraintTitleLabelWidth.constant = [UIScreen mainScreen].bounds.size.width - 143;
   [self bringSubviewToFront:self.privacyInformationIconImageView];
-    // self.sponsored.layer.cornerRadius = 5.0;
-    // self.sponsored.layer.borderWidth = 2;
-    // self.sponsored.layer.borderColor = [UIColor blackColor].CGColor
   
   CGRect screenSize = [UIScreen mainScreen].bounds;
   //Main Image View
@@ -42,16 +39,7 @@
   CGRect frame3 = self.callToActionLabel.frame;
   frame3.origin.x = screenSize.size.width-120;
   self.callToActionLabel.frame = frame3;
-    
-    // UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    // singleTap.numberOfTapsRequired = 1;
-    // [privacyInformationIconImageView setUserInteractionEnabled:YES];
-    // [privacyInformationIconImageView addGestureRecognizer:singleTap];
-    
-}
-
--(void)tapDetected{
-    NSLog(@"single Tap on imageview");
+  
 }
 
 - (UILabel *)nativeMainTextLabel
@@ -104,7 +92,7 @@
 
 -(void)customInit {
   
-  [NSBundle.mainBundle loadNibNamed:@"NativeAdBig" owner:self options: nil];
+  [NSBundle.mainBundle loadNibNamed:@"NativeAdBigDark" owner:self options: nil];
   [self addSubview:self.contentView];
   self.contentView.frame = self.bounds;
 }

@@ -16,6 +16,10 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.mopub.nativeads.GooglePlayServicesAdRenderer;
+import com.mopub.nativeads.GooglePlayServicesNative;
 import com.mopub.nativeads.MoPubNative;
 import com.mopub.nativeads.MoPubStaticNativeAdRenderer;
 import com.mopub.nativeads.NativeAd;
@@ -28,6 +32,7 @@ import com.RNMoPub.R;
 
 import java.util.EnumSet;
 // import java.util.HashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class NativeAdViewManager extends SimpleViewManager<View> implements View.OnAttachStateChangeListener,
@@ -91,11 +96,21 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         // extraToResourceMap.put(FlurryCustomEventNative.EXTRA_SEC_BRANDING_LOGO, R.id.native_privacy_information_icon_image);
 
         mopubNative = new MoPubNative(themedReactContext.getCurrentActivity(), unitId, this);
-        mopubNative.registerAdRenderer(new MoPubStaticNativeAdRenderer(
-                new ViewBinder.Builder(layout).titleId(R.id.native_title).textId(R.id.native_text)
-                        .mainImageId(R.id.native_main_image).iconImageId(R.id.native_icon_image)
-                        .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-                        .callToActionId(R.id.native_cta)/*.addExtras(extraToResourceMap)*/.build()));
+
+        ViewBinder mViewBinder = new ViewBinder.Builder(layout)
+                .titleId(R.id.native_title)
+                .textId(R.id.native_text)
+                .mainImageId(R.id.native_main_image)
+                .iconImageId(R.id.native_icon_image)
+                .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+                .callToActionId(R.id.native_cta)
+                .build();
+
+        final GooglePlayServicesAdRenderer googlePlayServicesAdRenderer = new GooglePlayServicesAdRenderer(mViewBinder);
+        final MoPubStaticNativeAdRenderer mopubStaticNativeAdRenderer = new MoPubStaticNativeAdRenderer(mViewBinder);
+
+        mopubNative.registerAdRenderer(googlePlayServicesAdRenderer);
+        mopubNative.registerAdRenderer(mopubStaticNativeAdRenderer);
         /* For developers
             You can add extra informations like:
             .addExtra("sponsoredtext", R.id.sponsored_text)
@@ -109,6 +124,7 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
                         RequestParameters.NativeAdAsset.MAIN_IMAGE, RequestParameters.NativeAdAsset.ICON_IMAGE,
                         RequestParameters.NativeAdAsset.CALL_TO_ACTION_TEXT))
                 .build());
+
     }
 
     /**
@@ -146,6 +162,8 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
         RequestAdInternal();
     }
 
+    private static final String TAG = "################ MyActivity";
+
     /**
      * This function is called if the ad was loaded successfully.
      * @param nativeAd The native ad helper.
@@ -154,25 +172,32 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
     public void onNativeLoad(NativeAd nativeAd) {
         this.nativeAdHelper = nativeAd;
 
+
+        // android.util.Log.v(TAG, 'f' + nativeAd.toString());
+
         SendOnSuccess();
         nativeAd.clear(adView);
         nativeAd.setMoPubNativeEventListener(this);
         nativeAd.renderAdView(adView);
         nativeAd.prepare(adView);
 
-        View privacyIcon = adView.findViewById(R.id.native_privacy_information_icon_image);
-        if(privacyIcon != null){
-            privacyIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    try{
-                        Uri uriUrl = Uri.parse("https://www.mopub.com/optout/");
-                        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-                        themedReactContext.startActivity(launchBrowser);
-                    }catch(Exception e){
+        if (nativeAd.getMoPubAdRenderer() instanceof GooglePlayServicesAdRenderer) {
+
+        }else{
+            View privacyIcon = adView.findViewById(R.id.native_privacy_information_icon_image);
+            if(privacyIcon != null){
+                privacyIcon.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try{
+                            Uri uriUrl = Uri.parse("https://www.mopub.com/optout/");
+                            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                            themedReactContext.startActivity(launchBrowser);
+                        }catch(Exception e){
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 

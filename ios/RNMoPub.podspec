@@ -18,4 +18,7 @@ Pod::Spec.new do |s|
 
   s.dependency          'React'
   s.dependency          'mopub-ios-sdk'
+  s.dependency          'MoPub-FacebookAudienceNetwork-Adapters'
+  s.dependency          'MoPub-AdMob-Adapters'
+  s.dependency          'MoPub-Flurry-Adapters'
 end

@@ -76,14 +76,19 @@
         android:textSize="12sp"
         android:textStyle="bold" />
 
-    <ImageView
-        android:id="@+id/native_privacy_information_icon_image"
+    <FrameLayout android:id="@+id/ad_choices_container"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:background="@null"
-        android:clickable="true"
-        android:contentDescription="@string/native_privacy_information_icon_image"
-        android:textSize="12sp" />
+    >
+        <ImageView
+            android:id="@+id/native_privacy_information_icon_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="@string/native_privacy_information_icon_image"
+            android:textSize="12sp" />
+    </FrameLayout>
 </RelativeLayout>

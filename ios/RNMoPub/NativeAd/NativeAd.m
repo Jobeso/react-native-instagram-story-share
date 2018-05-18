@@ -8,9 +8,11 @@
 
 #import "NativeAd.h"
 #import "NativeAdBig.h"
+#import "NativeAdBigDark.h"
 #import "NativeAdMedium.h"
 #import "NativeAdSmall.h"
 #import "BaseView.h"
+// #import "MPGoogleAdMobNativeRenderer.h"
 
 @implementation NativeAd
 @synthesize delegate;
@@ -45,6 +47,10 @@ CGFloat smallHeight  = 137 ;
     settings.renderingViewClass = [NativeAdBig class];
     height = bigHeight;
   }
+  else if ([self.localLayout isEqualToString:@"MOPUB_NATIVEAD_BIG_DARK"]) {
+    settings.renderingViewClass = [NativeAdBigDark class];
+    height = bigHeight;
+  }
   else if ([self.localLayout isEqualToString:@"MOPUB_NATIVEAD_MEDIUM"]) {
     settings.renderingViewClass = [NativeAdMedium class];
     height = mediumHeight;
@@ -53,8 +59,10 @@ CGFloat smallHeight  = 137 ;
     settings.renderingViewClass = [NativeAdSmall class];
     height = smallHeight;
   }
-  MPNativeAdRendererConfiguration *config = [MPStaticNativeAdRenderer rendererConfigurationWithRendererSettings:settings];
-  MPNativeAdRequest *adRequest = [MPNativeAdRequest requestWithAdUnitIdentifier:self.localunitId rendererConfigurations:@[config]];
+  // MPNativeAdRendererConfiguration *googleConfig = [MPGoogleAdMobNativeRenderer rendererConfigurationWithRendererSettings:settings];
+  MPNativeAdRendererConfiguration *mopubConfig = [MPStaticNativeAdRenderer rendererConfigurationWithRendererSettings:settings];
+
+  MPNativeAdRequest *adRequest = [MPNativeAdRequest requestWithAdUnitIdentifier:self.localunitId rendererConfigurations:@[mopubConfig]];
   MPNativeAdRequestTargeting *targeting = [MPNativeAdRequestTargeting targeting];
   targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey, kAdTextKey, kAdCTATextKey, kAdIconImageKey, kAdMainImageKey, kAdStarRatingKey, nil]; //The constants correspond to the 6 elements of MoPub native ads
   adRequest.targeting = targeting;
