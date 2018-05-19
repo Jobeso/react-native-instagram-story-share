@@ -13,6 +13,8 @@
 @interface NativeAdBigDark : BaseView
 @property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *sponsored;
+@property (strong, nonatomic) IBOutlet UIView *sponsoredContainer;
 @property (strong, nonatomic) IBOutlet UILabel *mainTextLabel;
 @property (strong, nonatomic) IBOutlet UILabel *callToActionLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *iconImageView;

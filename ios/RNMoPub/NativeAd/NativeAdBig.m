@@ -18,9 +18,8 @@
   self.callToActionLabel.layer.masksToBounds = YES;
   _constraintTitleLabelWidth.constant = [UIScreen mainScreen].bounds.size.width - 143;
   [self bringSubviewToFront:self.privacyInformationIconImageView];
-    // self.sponsored.layer.cornerRadius = 5.0;
-    // self.sponsored.layer.borderWidth = 2;
-    // self.sponsored.layer.borderColor = [UIColor blackColor].CGColor
+  self.sponsoredContainer.layer.cornerRadius = 5.0;
+    
   
   CGRect screenSize = [UIScreen mainScreen].bounds;
   //Main Image View
@@ -43,15 +42,22 @@
   frame3.origin.x = screenSize.size.width-120;
   self.callToActionLabel.frame = frame3;
     
-    // UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    // singleTap.numberOfTapsRequired = 1;
-    // [privacyInformationIconImageView setUserInteractionEnabled:YES];
-    // [privacyInformationIconImageView addGestureRecognizer:singleTap];
-    
 }
-
--(void)tapDetected{
-    NSLog(@"single Tap on imageview");
+- (IBAction)clickPrivacyIcon:(id)sender {
+    NSLog(@"######## test");
+    NSURL *url = [NSURL URLWithString:@"https://www.mopub.com/optout/"];
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:NULL];
+        } else {
+            // Fallback on earlier versions
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }else{
+        // Fallback on earlier versions
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 - (UILabel *)nativeMainTextLabel

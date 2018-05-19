@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NativeAdBig">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NativeAdBigDark">
             <connections>
                 <outlet property="callToActionLabel" destination="vUI-dH-sgN" id="mEh-rU-1uY"/>
                 <outlet property="contentView" destination="HyF-Yv-esQ" id="btd-NO-ezC"/>
@@ -16,6 +16,8 @@
                 <outlet property="mainImageView" destination="MDF-do-Wby" id="Pgs-aY-nhF"/>
                 <outlet property="mainTextLabel" destination="hEG-8A-k2e" id="2WQ-15-llf"/>
                 <outlet property="privacyInformationIconImageView" destination="DBR-gB-uYv" id="ftz-9A-ulP"/>
+                <outlet property="sponsored" destination="4LB-gw-imw" id="VgC-9b-f45"/>
+                <outlet property="sponsoredContainer" destination="qhr-wa-nBF" id="Yxz-y7-wSI"/>
                 <outlet property="titleLabel" destination="Zhz-AN-LlM" id="yoL-U2-FOc"/>
             </connections>
         </placeholder>
@@ -39,7 +41,25 @@
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBR-gB-uYv">
                                     <rect key="frame" x="379" y="13" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="8ex-H2-JcJ" appends="YES" id="Ixs-o4-0Oh"/>
+                                    </connections>
                                 </imageView>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qhr-wa-nBF">
+                                    <rect key="frame" x="20" y="325" width="86" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponsored" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4LB-gw-imw">
+                                            <rect key="frame" x="12" y="3" width="62" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.57254901960000004" green="0.57254901960000004" blue="0.57254901960000004" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.098039215686274508" green="0.13333333333333333" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
@@ -54,7 +74,7 @@
                             <rect key="frame" x="20" y="68" width="372" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MDF-do-Wby">
@@ -77,5 +97,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="8" y="118"/>
         </view>
+        <tapGestureRecognizer id="8ex-H2-JcJ">
+            <connections>
+                <action selector="clickPrivacyIcon:" destination="-1" id="qlW-hU-j2T"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

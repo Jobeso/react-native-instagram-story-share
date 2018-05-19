@@ -12,7 +12,7 @@
 #import "NativeAdMedium.h"
 #import "NativeAdSmall.h"
 #import "BaseView.h"
-// #import "MPGoogleAdMobNativeRenderer.h"
+#import "MPGoogleAdMobNativeRenderer.h"
 
 @implementation NativeAd
 @synthesize delegate;
@@ -59,10 +59,10 @@ CGFloat smallHeight  = 137 ;
     settings.renderingViewClass = [NativeAdSmall class];
     height = smallHeight;
   }
-  // MPNativeAdRendererConfiguration *googleConfig = [MPGoogleAdMobNativeRenderer rendererConfigurationWithRendererSettings:settings];
+  MPNativeAdRendererConfiguration *googleConfig = [MPGoogleAdMobNativeRenderer rendererConfigurationWithRendererSettings:settings];
   MPNativeAdRendererConfiguration *mopubConfig = [MPStaticNativeAdRenderer rendererConfigurationWithRendererSettings:settings];
 
-  MPNativeAdRequest *adRequest = [MPNativeAdRequest requestWithAdUnitIdentifier:self.localunitId rendererConfigurations:@[mopubConfig]];
+  MPNativeAdRequest *adRequest = [MPNativeAdRequest requestWithAdUnitIdentifier:self.localunitId rendererConfigurations:@[mopubConfig, googleConfig]];
   MPNativeAdRequestTargeting *targeting = [MPNativeAdRequestTargeting targeting];
   targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey, kAdTextKey, kAdCTATextKey, kAdIconImageKey, kAdMainImageKey, kAdStarRatingKey, nil]; //The constants correspond to the 6 elements of MoPub native ads
   adRequest.targeting = targeting;

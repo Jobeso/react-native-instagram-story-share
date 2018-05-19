@@ -18,6 +18,7 @@
   self.callToActionLabel.layer.masksToBounds = YES;
   _constraintTitleLabelWidth.constant = [UIScreen mainScreen].bounds.size.width - 143;
   [self bringSubviewToFront:self.privacyInformationIconImageView];
+  self.sponsoredContainer.layer.cornerRadius = 5.0;
   
   CGRect screenSize = [UIScreen mainScreen].bounds;
   //Main Image View
@@ -40,6 +41,23 @@
   frame3.origin.x = screenSize.size.width-120;
   self.callToActionLabel.frame = frame3;
   
+}
+
+- (IBAction)clickPrivacyIcon:(id)sender {
+    NSLog(@"######## test");
+    NSURL *url = [NSURL URLWithString:@"https://www.mopub.com/optout/"];
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+        if (@available(iOS 10.0, *)) {
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:NULL];
+        } else {
+            // Fallback on earlier versions
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }else{
+        // Fallback on earlier versions
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 - (UILabel *)nativeMainTextLabel

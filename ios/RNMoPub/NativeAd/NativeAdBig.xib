@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NativeAdBigDark">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NativeAdBig">
             <connections>
                 <outlet property="callToActionLabel" destination="vUI-dH-sgN" id="mEh-rU-1uY"/>
                 <outlet property="contentView" destination="HyF-Yv-esQ" id="btd-NO-ezC"/>
@@ -16,6 +16,8 @@
                 <outlet property="mainImageView" destination="MDF-do-Wby" id="Pgs-aY-nhF"/>
                 <outlet property="mainTextLabel" destination="hEG-8A-k2e" id="2WQ-15-llf"/>
                 <outlet property="privacyInformationIconImageView" destination="DBR-gB-uYv" id="ftz-9A-ulP"/>
+                <outlet property="sponsored" destination="ONz-mN-cOk" id="yRZ-eK-VUi"/>
+                <outlet property="sponsoredContainer" destination="fMM-7u-rtf" id="Jqo-Nh-P9y"/>
                 <outlet property="titleLabel" destination="Zhz-AN-LlM" id="yoL-U2-FOc"/>
             </connections>
         </placeholder>
@@ -39,14 +41,25 @@
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DBR-gB-uYv">
                                     <rect key="frame" x="379" y="13" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <gestureRecognizers/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="5ca-A1-fgA" appends="YES" id="PQd-Dj-Zij"/>
+                                    </connections>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponsored" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG6-SB-Thn">
-                                    <rect key="frame" x="31" y="328" width="62" height="15"/>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMM-7u-rtf">
+                                    <rect key="frame" x="20" y="325" width="86" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sponsored" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONz-mN-cOk">
+                                            <rect key="frame" x="12" y="3" width="62" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.5725490196078431" green="0.5725490196078431" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -61,14 +74,14 @@
                             <rect key="frame" x="20" y="68" width="372" height="56"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <nil key="textColor"/>
+                            <color key="textColor" red="0.098039215690000001" green="0.1333333333" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MDF-do-Wby">
                             <rect key="frame" x="20" y="132" width="372" height="180"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUI-dH-sgN">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vUI-dH-sgN">
                             <rect key="frame" x="292" y="322" width="100" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.1333333333" green="0.65490196079999996" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,7 +95,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="0.3129536617" blue="0.40150351670000001" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="8" y="118"/>
+            <point key="canvasLocation" x="10" y="108"/>
         </view>
+        <tapGestureRecognizer id="5ca-A1-fgA">
+            <connections>
+                <action selector="clickPrivacyIcon:" destination="-1" id="23p-JG-P5x"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>
