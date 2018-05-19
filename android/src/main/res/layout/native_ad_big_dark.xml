@@ -86,4 +86,21 @@
         android:clickable="true"
         android:contentDescription="@string/native_privacy_information_icon_image"
         android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/native_text"
+        android:layout_below="@+id/native_main_image"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/rounded_corner"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="2dp"
+        android:text="Sponsored"
+        android:textColor="@color/cta_text"
+        android:textSize="12sp" />
 </RelativeLayout>

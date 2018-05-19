@@ -16,10 +16,13 @@ import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.formats.NativeAdOptions;
+import com.mopub.nativeads.FacebookAdRenderer;
+import com.mopub.nativeads.FlurryNativeAdRenderer;
+import com.mopub.nativeads.FlurryViewBinder;
 import com.mopub.nativeads.GooglePlayServicesAdRenderer;
 import com.mopub.nativeads.GooglePlayServicesNative;
+import com.mopub.nativeads.MediaViewBinder;
 import com.mopub.nativeads.MoPubNative;
 import com.mopub.nativeads.MoPubStaticNativeAdRenderer;
 import com.mopub.nativeads.NativeAd;
@@ -28,11 +31,10 @@ import com.mopub.nativeads.RequestParameters;
 import com.mopub.nativeads.ViewBinder;
 import com.RNMoPub.LayoutMap;
 import com.RNMoPub.R;
-// import com.mopub.nativeads.FlurryCustomEventNative;
+import com.mopub.nativeads.FlurryCustomEventNative;
 
 import java.util.EnumSet;
 // import java.util.HashMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class NativeAdViewManager extends SimpleViewManager<View> implements View.OnAttachStateChangeListener,
@@ -104,13 +106,21 @@ public class NativeAdViewManager extends SimpleViewManager<View> implements View
                 .iconImageId(R.id.native_icon_image)
                 .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
                 .callToActionId(R.id.native_cta)
+                .addExtra(GooglePlayServicesAdRenderer.VIEW_BINDER_KEY_AD_CHOICES_ICON_CONTAINER, R.id.ad_choices_container)
                 .build();
 
+        FlurryViewBinder flurryViewBinder = new FlurryViewBinder.Builder(mViewBinder).build();
+
         final GooglePlayServicesAdRenderer googlePlayServicesAdRenderer = new GooglePlayServicesAdRenderer(mViewBinder);
+        final FacebookAdRenderer facebookAdRenderer = new FacebookAdRenderer(mViewBinder);
+        final FlurryNativeAdRenderer flurryAdRenderer = new FlurryNativeAdRenderer(flurryViewBinder);
         final MoPubStaticNativeAdRenderer mopubStaticNativeAdRenderer = new MoPubStaticNativeAdRenderer(mViewBinder);
 
         mopubNative.registerAdRenderer(googlePlayServicesAdRenderer);
+        mopubNative.registerAdRenderer(facebookAdRenderer);
+        mopubNative.registerAdRenderer(flurryAdRenderer);
         mopubNative.registerAdRenderer(mopubStaticNativeAdRenderer);
+
         /* For developers
             You can add extra informations like:
             .addExtra("sponsoredtext", R.id.sponsored_text)
