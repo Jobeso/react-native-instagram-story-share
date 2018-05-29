@@ -47,4 +47,6 @@ RNInstagramStoryShare.share({
 	backgroundImage: 'data:image/png;base64, ...',
 	deeplinkUrl: 'https://github.com/',
 })
+.then(() => console.log('SUCCESS))
+.catch(e => console.log('ERROR', e))
 ```
