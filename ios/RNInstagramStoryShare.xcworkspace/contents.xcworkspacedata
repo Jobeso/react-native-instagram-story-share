@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:RNInstagramStoryShare"
+      name = "RNInstagramStoryShare">
+      <FileRef
+         location = "group:RNInstagramStoryShare.h">
+      </FileRef>
+      <FileRef
+         location = "group:RNInstagramStoryShare.m">
+      </FileRef>
+   </Group>
+</Workspace>

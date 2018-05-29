@@ -1,6 +1,6 @@
 {
   "name": "react-native-instagram-story-share",
-  "version": "0.1.19",
+  "version": "0.1.0",
   "author": "Callosum Software <kontakt@callosum-sw.de>",
   "description": "React Native Wrapper for Instagram Story Share",
   "main": "src/index.js",
