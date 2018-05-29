@@ -1,1 +1,1 @@
-export { default as NativeAd } from './NativeAd'
+export { default as RNInstagramStoryShare } from './RNInstagramStoryShare'

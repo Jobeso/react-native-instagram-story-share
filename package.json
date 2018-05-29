@@ -1,12 +1,12 @@
 {
-  "name": "react-native-mopub",
+  "name": "react-native-instagram-story-share",
   "version": "0.1.19",
   "author": "Callosum Software <kontakt@callosum-sw.de>",
-  "description": "React Native Wrapper for MoPub",
+  "description": "React Native Wrapper for Instagram Story Share",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/Tellonym/react-native-mopub.git"
+    "url": "https://gitlab.com/Tellonym/react-native-instagram-story-share.git"
   },
   "publishConfig": {
     "registry": "http://138.68.78.217:4873"

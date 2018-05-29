@@ -19,24 +19,7 @@ android {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
-    compile 'com.google.android.gms:play-services-gcm:+'
-    compile('com.mopub:mopub-sdk:5.0.0@aar') {
-         transitive = true
-     }
-    // Google (AdMob)
-    compile 'com.google.android.gms:play-services-ads:15.0.0'
-    compile 'com.mopub.mediation:admob:15.0.0.3'
-
-    // Yahoo! Flurry
-    compile 'com.flurry.android:ads:9.0.0'
-    compile 'com.mopub.mediation:flurry:9.0.0.0'
-
-    // Facebook Audience Network
-    compile 'com.facebook.android:audience-network-sdk:4.28.1'
-    compile 'com.mopub.mediation:facebookaudiencenetwork:4.28.1.1'
 }
 
 repositories {
-    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
 }

@@ -1,4 +1,4 @@
-package com.RNMoPub;
+package com.RNInstagramStoryShare;
 
 import android.app.Application;
 
