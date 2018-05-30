@@ -1,17 +1,23 @@
 {
   "name": "react-native-instagram-story-share",
   "version": "0.1.0",
-  "author": "Callosum Software <kontakt@callosum-sw.de>",
-  "description": "React Native Wrapper for Instagram Story Share",
+  "author": "Johannes Sorg <johannes@sorg.me>",
+  "description": "React Native Module for Instagram Story Share",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/Tellonym/react-native-instagram-story-share.git"
+    "url": "https://github.com/Jobeso/react-native-instagram-story-share.git"
   },
-  "publishConfig": {
-    "registry": "http://138.68.78.217:4873"
-  },
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "homepage": "https://github.com/Jobeso/react-native-instagram-story-share.git",
+  "keywords": [
+    "instagram",
+    "story",
+    "share",
+    "react-native",
+    "react",
+    "native"
+  ],
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "babel-preset-react-native": "^4.0.0",
