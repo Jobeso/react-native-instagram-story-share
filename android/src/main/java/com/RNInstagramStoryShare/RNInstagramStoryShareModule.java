@@ -1,4 +1,4 @@
-package com.RNInstagramStoryShare;
+<package com.RNInstagramStoryShare;
 
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -8,6 +8,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.Callback;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.ActivityNotFoundException;
 import android.net.Uri;
@@ -16,14 +17,17 @@ import android.support.annotation.Nullable;
 import java.util.Map;
 import java.util.HashMap;
 
-public class RNInstagramStoryShare extends ReactContextBaseJavaModule {
+import okhttp3.MediaType;
+
+public class RNInstagramStoryShareModule extends ReactContextBaseJavaModule {
 
   public static final String NOT_INSTALLED = "Not installed";
   public static final String INTERNAL_ERROR = "Data conversion failed";
   public static final String NO_BASE64_IMAGE = "No base64 image";
   public static final String INVALID_PARAMETER = "Invalid parameter";
+  private  static final String MEDIA_TYPE_JPEG = "image/*";
 
-  public RNInstagramStoryShare(ReactApplicationContext reactContext) {
+  public RNInstagramStoryShareModule(ReactApplicationContext reactContext) {
     super(reactContext);
   }
 
@@ -35,10 +39,10 @@ public class RNInstagramStoryShare extends ReactContextBaseJavaModule {
   @Override
   public Map<String, Object> getConstants() {
     final Map<String, Object> constants = new HashMap<>();
-    constants.put(NOT_INSTALLED, 'Not installed');
-    constants.put(INTERNAL_ERROR, 'Data conversion failed');
-    constants.put(NO_BASE64_IMAGE, 'No base64 image');
-    constants.put(INVALID_PARAMETER, 'Invalid parameter');
+    constants.put(NOT_INSTALLED, NOT_INSTALLED);
+    constants.put(INTERNAL_ERROR, INTERNAL_ERROR);
+    constants.put(NO_BASE64_IMAGE, NO_BASE64_IMAGE);
+    constants.put(INVALID_PARAMETER, INVALID_PARAMETER);
     return constants;
   }
 
@@ -46,8 +50,9 @@ public class RNInstagramStoryShare extends ReactContextBaseJavaModule {
   public void share(ReadableMap options, @Nullable Callback failureCallback, @Nullable Callback successCallback) {
     try {
       // Define image asset URI and attribution link URL
-      Uri backgroundAssetUri = options.getString("backgroundImage")
-      String attributionLinkUrl = options.getString("deeplinkUrl")
+      Uri backgroundAssetUri = Uri.parse(options.getString("backgroundImage"));
+      String attributionLinkUrl = options.getString("deeplinkUrl");
+
 
       // Instantiate implicit intent with ADD_TO_STORY action,
       // background asset, and attribution link
@@ -57,7 +62,7 @@ public class RNInstagramStoryShare extends ReactContextBaseJavaModule {
       intent.putExtra("content_url", attributionLinkUrl);
 
       // Instantiate activity and verify it will resolve implicit intent
-      Activity activity = getActivity();
+      Activity activity = this.getCurrentActivity();
       if (activity.getPackageManager().resolveActivity(intent, 0) != null) {
         activity.startActivityForResult(intent, 0);
       }
@@ -71,3 +76,4 @@ public class RNInstagramStoryShare extends ReactContextBaseJavaModule {
 
  
 }
+>

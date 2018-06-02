@@ -2,7 +2,7 @@ import { NativeModules } from 'react-native'
 
 const { RNInstagramStoryShare } = NativeModules
 
-const ERROR_TYPES = {
+/* const ERROR_TYPES = {
   NOT_INSTALLED: RNInstagramStoryShare.NOT_INSTALLED,
   INTERNAL_ERROR: RNInstagramStoryShare.INTERNAL_ERROR,
   NO_BASE64_IMAGE: RNInstagramStoryShare.NO_BASE64_IMAGE,
@@ -16,4 +16,6 @@ const shareToInstagramStory = options =>
 
 module.exports = { share: shareToInstagramStory, ERROR_TYPES }
 module.exports.shareToInstagramStory = shareToInstagramStory
-module.exports.ERROR_TYPES = ERROR_TYPES
+module.exports.ERROR_TYPES = ERROR_TYPES */
+
+module.exports = RNInstagramStoryShare

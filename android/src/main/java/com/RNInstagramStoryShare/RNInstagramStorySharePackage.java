@@ -9,14 +9,15 @@ import com.facebook.react.uimanager.ViewManager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.RNInstagramStoryShareModule;
 
-public class RNInstagramStoryShare implements ReactPackage {
+public class RNInstagramStorySharePackage implements ReactPackage {
 
   @Override
   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
 
-    modules.add(new RNDeviceModule(reactContext));
+    modules.add(new RNInstagramStoryShareModule(reactContext));
 
     return modules;
   }
