@@ -2,6 +2,7 @@ package com.jobeso.RNInstagramStoryShare;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.support.annotation.Nullable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
@@ -60,23 +62,31 @@ public class RNInstagramStoryShareModule extends ReactContextBaseJavaModule {
     public void share(ReadableMap options, @Nullable Callback failureCallback, @Nullable Callback successCallback) {
       try {
         // Define image asset URI and attribution link URL
-        Uri backgroundAssetUri = Uri.parse(options.getString("backgroundImage"));
+          File imageFileToShare = new File("/storage/emulated/0/DCIM/Camera/IMG_20180530_212925.jpg");
+        Uri backgroundAssetUri = Uri.fromFile(imageFileToShare);//options.getString("backgroundImage"));
         String attributionLinkUrl = options.getString("deeplinkUrl");
 
 
         // Instantiate implicit intent with ADD_TO_STORY action,
         // background asset, and attribution link
         Intent intent = new Intent("com.instagram.share.ADD_TO_STORY");
-        intent.setDataAndType(backgroundAssetUri, MEDIA_TYPE_JPEG);
+        intent.setDataAndType(backgroundAssetUri, MEDIA_TYPE_PNG);
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.putExtra("content_url", attributionLinkUrl);
 
         // Instantiate activity and verify it will resolve implicit intent
-        Activity activity = this.getCurrentActivity();
-        if (activity.getPackageManager().resolveActivity(intent, 0) != null) {
+        Activity activity = getCurrentActivity();
+        ResolveInfo should = activity.getPackageManager().resolveActivity(intent, 0);
+        if (should != null) {
           activity.startActivityForResult(intent, 0);
+          successCallback.invoke("OK");
+        } else {
+          successCallback.invoke("OK, but not opened");
         }
-        successCallback.invoke("OK");
+
+
+
+
       } catch(ActivityNotFoundException ex) {
           System.out.println("ERROR");
           System.out.println(ex.getMessage());
