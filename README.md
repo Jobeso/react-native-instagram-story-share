@@ -41,12 +41,12 @@ end
 ## Usage ##
 
 ```javascript
-import RNInstagramStoryShare = 'react-native-instagram-story-share'
+import RNInstagramStoryShare from 'react-native-instagram-story-share'
 
 RNInstagramStoryShare.share({
 	backgroundImage: 'data:image/png;base64, ...',
 	deeplinkUrl: 'https://github.com/',
 })
-.then(() => console.log('SUCCESS))
+.then(() => console.log('SUCCESS'))
 .catch(e => console.log('ERROR', e))
 ```
