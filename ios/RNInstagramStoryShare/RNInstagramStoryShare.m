@@ -10,16 +10,22 @@
 #endif
 
 @implementation RNInstagramStoryShare
+
+RCT_EXPORT_MODULE();
+
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
 }
 
-RCT_EXPORT_MODULE();
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
 
 RCT_EXPORT_METHOD(share:(NSDictionary *)options
-                  failureCallback:(RCTResponseErrorBlock)failureCallback
-                  successCallback:(RCTResponseSenderBlock)successCallback) {
+                  resolve:(RCTPromiseResolveBlock)resolve
+                  reject:(RCTPromiseRejectBlock)reject) {
     NSString *deeplinkingUrl = [RCTConvert NSString:options[@"deeplinkingUrl"]];
     NSURL *backgroundImageUrl = [RCTConvert NSURL:options[@"backgroundImage"]];
     
@@ -35,15 +41,15 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)options
                                                    error:&error];
             
             if (!data) {
-                failureCallback(error);
+                reject(RCTErrorUnspecified, errorMessage, error);
                 return;
             }
 
             /* deeplink to instagram */
             [self backgroundImage:UIImagePNGRepresentation([UIImage imageWithData:data])
                   attributionURL: deeplinkingUrl
-                  failureCallback:failureCallback
-                  successCallback:successCallback];
+                  resolve:resolve
+                  reject:reject];
 
         } else {
             /* handle non base64 images */
@@ -51,7 +57,7 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)options
             NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
             NSError *error = [NSError errorWithDomain:@"com.rninstagramstoryshare" code:1 userInfo:userInfo];
 
-            failureCallback(error);
+            reject(RCTErrorUnspecified, errorMessage, error);
         }
     } else {
         /* handle non existing assets */
@@ -59,14 +65,14 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)options
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
         NSError *error = [NSError errorWithDomain:@"com.rninstagramstoryshare" code:1 userInfo:userInfo];
         
-        failureCallback(error);
+        reject(RCTErrorUnspecified, errorMessage, error);
     }
 }
 
 - (void)backgroundImage:(NSData *)backgroundImage
                 attributionURL:(NSString *)attributionURL
-                failureCallback:(RCTResponseErrorBlock)failureCallback
-                successCallback:(RCTResponseSenderBlock)successCallback
+                resolve:(RCTPromiseResolveBlock)resolve
+                reject:(RCTPromiseRejectBlock)reject
 {
     
     // Verify app can open custom URL scheme, open if able
@@ -94,7 +100,7 @@ RCT_EXPORT_METHOD(share:(NSDictionary *)options
         NSDictionary *userInfo = @{NSLocalizedFailureReasonErrorKey: NSLocalizedString(errorMessage, nil)};
         NSError *error = [NSError errorWithDomain:@"com.rninstagramstoryshare" code:1 userInfo:userInfo];
 
-        failureCallback(error);
+        reject(RCTErrorUnspecified, errorMessage, error);
     }
 }
 
