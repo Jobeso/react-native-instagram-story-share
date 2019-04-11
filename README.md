@@ -1,3 +1,5 @@
+## DEPRECATED! See [react-native-story-share](https://github.com/Jobeso/react-native-story-share) for story sharing ##
+
 # React Native Instagram Story Share #
 
 ## Installation ##
