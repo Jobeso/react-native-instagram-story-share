@@ -28,7 +28,7 @@ platform :ios, '8.0'
 target 'MyApp' do
   # use_frameworks!
 	...
-	pod 'RNInstagramStoryShare', :path => '../node_modules/react-native-instagram-story-share/ios'
+	pod 'RNInstagramShare', :path => '../node_modules/react-native-instagram-share/ios'
 	...
 end
 ```
